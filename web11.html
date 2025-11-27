@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple MCQ Exam</title>
+</head>
+<body>
+
+  <h2>MCQ Exam</h2>
+
+  <form id="quizForm">
+
+    <h3>1. Which HTML tag is used to define an internal style sheet?</h3>
+    <label><input type="radio" name="q1" value="a"> &lt;css&gt;</label><br>
+    <label><input type="radio" name="q1" value="b"> &lt;script&gt;</label><br>
+    <label><input type="radio" name="q1" value="c"> &lt;style&gt;</label><br>
+    <label><input type="radio" name="q1" value="d"> &lt;link&gt;</label><br>
+
+    <h3>2. Which of the following is a JavaScript framework?</h3>
+    <label><input type="radio" name="q2" value="a"> Django</label><br>
+    <label><input type="radio" name="q2" value="b"> React</label><br>
+    <label><input type="radio" name="q2" value="c"> Laravel</label><br>
+    <label><input type="radio" name="q2" value="d"> Flask</label><br>
+
+    <h3>3. What does CSS stand for?</h3>
+    <label><input type="radio" name="q3" value="a"> Creative Style Sheets</label><br>
+    <label><input type="radio" name="q3" value="b"> Cascading Style Sheets</label><br>
+    <label><input type="radio" name="q3" value="c"> Computer Style System</label><br>
+    <label><input type="radio" name="q3" value="d"> Colorful Style Syntax</label><br>
+
+    <h3>4. Which symbol is used for comments in JavaScript?</h3>
+    <label><input type="radio" name="q4" value="a"> #</label><br>
+    <label><input type="radio" name="q4" value="b"> //</label><br>
+    <label><input type="radio" name="q4" value="c"> <!-- --> </label><br>
+    <label><input type="radio" name="q4" value="d"> *</label><br>
+
+    <h3>5. Which HTML attribute is used to define inline styles?</h3>
+    <label><input type="radio" name="q5" value="a"> class</label><br>
+    <label><input type="radio" name="q5" value="b"> style</label><br>
+    <label><input type="radio" name="q5" value="c"> font</label><br>
+    <label><input type="radio" name="q5" value="d"> designs</label><br><br>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    function checkAnswers() {
+      const correctAnswers = { q1: "c", q2: "b", q3: "b", q4: "b", q5: "b" };
+      let score = 0;
+      const form = document.getElementById("quizForm");
+
+      for (let key in correctAnswers) {
+        if (form.elements[key].value === correctAnswers[key]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").innerText = 
+        `You scored ${score} out of 5 🎉`;
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Hover Over the Image</h2>
+<img id="img" src="https://supertails.com/cdn/shop/articles/bird-breed_2cd7d88f-2438-4acf-9bd8-64c561ae55ae.jpg?v=1747132798" alt="placeholder image">
+<p id="txt">This is the original image.</p>
+
+<script>
+const img = document.getElementById('img');
+const txt = document.getElementById('txt');
+
+const originalSrc = img.src;
+const hoverSrc = "https://i.ytimg.com/vi/HJTjwg0Tm68/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGD8gZSg0MA8=&rs=AOn4CLAIru0IRQuXhZp6NWESCsTGkF5jsA"; // new image URL
+
+img.addEventListener('mouseover', () => {
+  img.src = hoverSrc;
+  txt.textContent = 'This is the new image!';
+});
+
+img.addEventListener('mouseout', () => {
+  img.src = originalSrc;
+  txt.textContent = 'This is the original image.';
+});
+</script>
+
+</body>
+</html>
+

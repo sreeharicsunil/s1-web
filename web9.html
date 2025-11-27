@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>String & Math Examples</h2>
+<pre id="output"></pre>
+
+<script>
+const output = document.getElementById("output");
+
+// Helper function to display results
+function show(label, value) {
+  output.textContent += label + ": " + value + "\n";
+}
+
+// String examples
+let str = "Hello JavaScript!";
+show("Original", str);
+show("Length", str.length);
+show("Uppercase", str.toUpperCase());
+show("Substring (0–5)", str.substring(0,5));
+show("Replace", str.replace("JavaScript", "World"));
+
+// Math examples
+show("Random (0–1)", Math.random());
+show("Square root of 16", Math.sqrt(16));
+show("2³", Math.pow(2,3));
+show("Round 4.7", Math.round(4.7));
+show("Max of 10,20,5", Math.max(10,20,5));
+</script>
+
+</body>
+</html>
+
