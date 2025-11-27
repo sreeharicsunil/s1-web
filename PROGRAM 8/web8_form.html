@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+    <style>
+    body {
+        font-family: Arial;
+      
+    }
+
+    .form-box {
+        width: 300px;
+        margin: 30px auto;
+        padding: 20px;
+        border: 1px solid black;
+        background : skyblue;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 6px;
+        margin: 6px 0;
+        border: 1px solid #555;
+    }
+
+    .btn {
+        width: 48%;
+        padding: 8px;
+        margin-top: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>FORM VALIDATION</h2>
+
+    <form onsubmit="return validate()">
+        Name:
+        <input type="text" id="name">
+
+        Email:
+        <input type="text" id="email">
+
+        Mobile number:
+        <input type="text" id="mobile">
+
+        Username:
+        <input type="text" id="user">
+
+        Password:
+        <input type="password" id="pass">
+
+        <input type="reset" class="btn" value="reset">
+        <input type="submit" class="btn" value="submit">
+    </form>
+</div>
+
+<script>
+function validate() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("pass").value;
+
+    if (!name || !email || !mobile || !user || !pass) {
+        alert("All fields are required!");
+        return false;
+    }
+
+    if (!email.includes("@")) {
+        alert("Enter a valid email!");
+        return false;
+    }
+
+    if (mobile.length != 10 || isNaN(mobile)) {
+        alert("Enter mobile number with 10 digits");
+        return false;
+    }
+
+    alert("Form Submitted Successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>

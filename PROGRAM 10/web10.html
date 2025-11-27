@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title> Mouse Handling </title>
+    </head>
+    <body style="text-align : center;">
+     <h2> Mouse Handling </h2>
+        <img id="myImage" src="https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg" width="200px" height="200px" onmouseover="changeMyPic()"/>
+        <p id="text"></p>
+        <script>
+            function changeMyPic() 
+            {
+                document.getElementById("myImage").src = "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg";
+                document.getElementById("text").innerHTML = "New Image Displayed!";
+            }
+            function secondFn() 
+            {
+               document.getElementById("myImage").src = "img1.jpg";
+               document.getElementById("text").innerHTML = " ";
+            }
+        </script>
+    </body>
+</html>

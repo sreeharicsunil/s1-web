@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    td.today {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    input {
+      width: 100px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2> Calendar Generator</h2>
+  
+  <label>Year: <input type="number" id="year" placeholder="e.g. 2025"></label>
+  <label>Month: <input type="number" id="month" placeholder="1–12"></label>
+  <button onclick="showCalendar()">Show Calendar</button>
+
+  <div id="calendar"></div>
+
+  <script>
+    function showCalendar() {
+      const year = parseInt(document.getElementById("year").value);
+      const month = parseInt(document.getElementById("month").value) - 1;
+
+      if (isNaN(year) || isNaN(month) || month < 0 || month > 11) {
+        alert("Please enter a valid year and month (1–12).");
+        return;
+      }
+
+      const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+      let date = new Date(year, month, 1);
+      let result = `<h3>${monthNames[month]} ${year}</h3>`;
+      result += "<table><tr>";
+
+     
+      for (let day of daysOfWeek) {
+        result += `<th>${day}</th>`;
+      }
+      result += "</tr><tr>";
+
+      
+      for (let i = 0; i < date.getDay(); i++) {
+        result += "<td></td>";
+      }
+
+      const today = new Date();
+
+      
+      while (date.getMonth() === month) {
+        const isToday =
+          date.getDate() === today.getDate() &&
+          date.getMonth() === today.getMonth() &&
+          date.getFullYear() === today.getFullYear();
+
+        result += `<td class="${isToday ? 'today' : ''}">${date.getDate()}</td>`;
+
+        if (date.getDay() === 6) {
+          result += "</tr><tr>";
+        }
+        date.setDate(date.getDate() + 1);
+      }
+
+      result += "</tr></table>";
+      document.getElementById("calendar").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
+
